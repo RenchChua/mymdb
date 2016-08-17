@@ -12,13 +12,13 @@ var Actor = require('./models/actor');
 // require installed modules
 var bodyParser = require('body-parser');
 
-// require express module
+// set port
 var app = express();
+app.set('port', (process.env.PORT) || 5000);
 
-// set up the port
-var port = 5000;
-
-app.set('port', port);
+app.listen(app.get('port'), function(){
+  console.log('My express server is running at localhost', app.get('port'));
+});
 
 // set all the middleware
 app.use(bodyParser.json());
