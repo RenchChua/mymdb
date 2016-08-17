@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- node
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: AcT0QklGYoPbXyM0f55INKVj5PtpohszNjZ/NUQnTq/gBJG+JeIoPe0JxPap8yM02gkCIo/zGFKugHuEUO0dHj1cRvdd+dKerXlnXYXQkn9QTw52MLpO0cXchr2Xm3NsxwK3cmW5yZ+hrRWX9+KNXMtUUFX1szvTsSL+XCcOxy2B9/O0vn2oPFwp0Vb35FXFn8guMUccePab4IMebdztrxx3qpKZsOSzMpxg0IkQDITvrq1pUBLsExm7nYmri5TZsaXiALe2KbWQqxWvyogVVo0zziGG45ni9ser/GP1UP4WYX31VsBCxWttKVDXLSJ6vSkpKbuWuY9GweNeGwuoy0NMk6259oaffxxNmz8R7eI7ii5ZwuJqec2YZMJLYYUi7nc6YbcjB59RglxMII8VsDtFy6bGc59SEs0T2gFUDSX0a7qxFJAp1gcv/HsNDh0J75nW7LPmG1/u4LK/mvpyynideLxVMCVBw9c5cKOoydmC5I5qtM/REaRl+kn8AXQJQ44wexyWFmQqim1psWEazstXfSSVa0b5Av08Czbe9Z3XcWdnfBhB+QiPOkp/ZE5PPLTVJhSeCjEQJ+VXAiP1Ajyw1EWX0Q2suLmC9X6DCO8fohdYdlpnabRmmhADRP5A3FZrkJhXry64yqa6pg2+SLuL9QmIOAy/ujHI6WKdwy8=
+  app: renchmdb
+  on:
+    repo: RenchChua/mymdb
