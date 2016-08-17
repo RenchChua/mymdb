@@ -73,7 +73,10 @@ app.post('/login', function (req, res) {
     if(user) {
 
       var payload = user ;
-      var jwt_token = jwt.sign(payload, jwt_secret);
+      var expiryObj = {
+        expiryInMinutes: 300
+      };
+      var jwt_token = jwt.sign(payload, jwt_secret,expiryObj);
       return res.status(200).send(jwt_token);
     }else{
       // this is login failed flow

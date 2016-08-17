@@ -36,6 +36,8 @@ movieSchema.set('toJSON', {getters: true});
 
 // register the schema
 
+
+
 var Movie = mongoose.model('Movie', movieSchema);
 
 // make this available to our other files
