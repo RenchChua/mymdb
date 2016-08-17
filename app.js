@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 
 // set port
 var app = express();
-var port = (process.env.PORT) || 5000)
+var port = (process.env.PORT) || 5000;
 app.set('port', port);
 
 // set all the middleware
