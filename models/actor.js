@@ -7,7 +7,8 @@ var mongoose = require('mongoose');
 var actorSchema = new mongoose.Schema({
   first_name: {
     type: String,
-    trim: true
+    trim: true,
+    required: [true, "Please enter name!"]
   },
   last_name: {
     type: String,
@@ -16,7 +17,9 @@ var actorSchema = new mongoose.Schema({
   email:{
     type: String,
     unique: true,
-    index: true
+    index: true,
+    required: [true, "Please enter email!"],
+    match: [/.+\@.+\..+/, "Not a valid email address"]
   },
   age: Number,
   agency: {
@@ -35,23 +38,32 @@ var actorSchema = new mongoose.Schema({
         }
         return url;
     }
-  },
-  created_at:{
-    type: Date,
-    default: Date.now
   }
-});
+}, {timestamps:{}});
 
 
 // set virtual attributes
 
 actorSchema.virtual('fullname').get(function() {
   return this.first_name + " " + this.last_name;
-})
+});
 
 // register the modifiers
 
 actorSchema.set('toJSON', {getters: true, virtuals: true});
+
+// setting up query
+
+actorSchema.query = {
+  byName: function (name) {
+    return this.find({
+      $or: [
+        { first_name: new RegExp(name, 'i' ) },
+        { last_name: new RegExp(name, 'i' ) }
+      ]
+    });
+  }
+};
 
 // register the schema
 

@@ -28,12 +28,8 @@ var movieSchema = new mongoose.Schema({
         }
         return url;
     }
-  },
-  created_at:{
-    type: Date,
-    default: Date.now
   }
-});
+}, {timestamps: {}});
 // register the getter
 
 movieSchema.set('toJSON', {getters: true});
