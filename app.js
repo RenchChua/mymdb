@@ -14,11 +14,8 @@ var bodyParser = require('body-parser');
 
 // set port
 var app = express();
-app.set('port', (process.env.PORT) || 5000);
-
-app.listen(app.get('port'), function(){
-  console.log('My express server is running at localhost', app.get('port'));
-});
+var port = (process.env.PORT) || 5000)
+app.set('port', port);
 
 // set all the middleware
 app.use(bodyParser.json());
